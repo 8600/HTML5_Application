@@ -1,126 +1,56 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    <script src="js/mui.min.js"></script>
-    <link href="css/mui.min.css" rel="stylesheet"/>
-    <script src="js/jquery-3.1.0.min.js"></script>
-    <script src="js/PUGE-0.2.js"></script>
-    <style>
-        .zhanwei{
-            width: 100%;
-            height: 40px;
-        } 
+	<head>
+		<meta charset="utf-8">
+		<title>插件列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    </style>
-    <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
-</head>
-<body>
-	<header id="header" class="mui-bar mui-bar-transparent" style="background-color: rgba(247, 247, 247, 0);">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-        <h1 class="mui-title">娱乐网文</h1>
-	</header>
-    <div class="zhanwei"></div>
-    <div id="item_box">
-        <div id="item"></div>
-    </div>
-
-    <div class="mui-content-padded">
-        <ul class="  mui-pager" >
-            <li class="mui-previous">
-                <a>«</a>
-            </li>
-            <li id="page_1" onclick='page("page1")' class="mui-active">
-                <a id="page1">1</a>
-            </li>
-            <li id="page_2" onclick='page("page2")'>
-                <a id="page2" >2</a>
-            </li>
-            <li id="page_3" onclick='page("page3")'>
-                <a id="page3">3</a>
-            </li>
-            <li id="page_4"  onclick='page("page4")'>
-                <a id="page4" >4</a>
-            </li>
-            <li id="page_5" onclick='page("page5")'>
-                <a id="page5">5</a>
-            </li>
-            <li class="mui-next mui-disabled">
-                <a>»</a>
-            </li>
-        </ul>
-    </div>
-
-</body>
-<script>
-    function dgzfcjq(e,f,g,h){var aa=[];var ab=0;while(e.indexOf(f,h)>0){aa[ab]=cut_string(e,f,g,h);h=e.indexOf(f,h)+1;ab++};return aa};
-    var success;var ajax;
-    (function($) {
-        //成功响应的回调函数
-        success = function(response) {
-            response = JSON.stringify(response);
-            var box = cut_string(response,'box list','box pageDiv');
-            box=box.replace(/\\r\\n\\t\\t\\t\\t/g,"");
-            var title = dgzfcjq(box,'asp\\">',"<");
-            var content = dgzfcjq(box,'<p>',"<em>");
-            var b =document.getElementById("item");
-            for(var i in title){
-                var a = document.createElement("div");
-                a.setAttribute("class", "mui-card");
-                a.innerHTML = '<div class="mui-card-header">'+title[i]+'</div> <div class="mui-card-content"> <div class="mui-card-content-inner">'+content[i]+'</div> </div>';
-                insert_tag_after(a,b);
-
-            }
-        };
-        ajax = function(url) {
-            //利用RunJS的Echo Ajax功能测试
-            $.get(url, "", success, "HTML");
-        };
-        setTimeout(ajax('http://m.laifudao.com/wangwen/'),1000);
-    })(mui);
-    //换页事件
-    function page(a) {
-        var click_page =document.getElementById(a);
-        var click_page_number = parseInt(click_page.innerHTML);
-        var page_1=document.getElementById("page1");
-        var page_2=document.getElementById("page2");
-        var page_3=document.getElementById("page3");
-        var page_4=document.getElementById("page4");
-        var page_5=document.getElementById("page5");
-        var active_button1 =document.getElementById("page_1");
-        var active_button2 =document.getElementById("page_2");
-        var active_button3 =document.getElementById("page_3");
-        var box =document.getElementById("item_box");
-        if(click_page_number>2){
-            page_1.innerHTML=click_page_number-2;
-            page_2.innerHTML=click_page_number-1;
-            page_3.innerHTML=click_page_number;
-            page_4.innerHTML=click_page_number+1;
-            page_5.innerHTML=click_page_number+2;
-            active_button1.setAttribute("class","");
-            active_button2.setAttribute("class","");
-            active_button3.setAttribute("class","mui-active");
-
-            box.innerHTML='<div id="item"></div>';
-            ajax('http://m.laifudao.com/wangwen/index_'+click_page_number+'.asp');
-        }
-        else if (click_page_number=2){
-            page_1.innerHTML=click_page_number-1;
-            page_2.innerHTML=click_page_number;
-            page_3.innerHTML=click_page_number+1;
-            page_4.innerHTML=click_page_number+2;
-            page_5.innerHTML=click_page_number+3;
-            active_button1.setAttribute("class","");
-            active_button2.setAttribute("class","mui-active");
-            active_button3.setAttribute("class","");
-            box.innerHTML='<div id="item"></div>';
-            ajax('http://m.laifudao.com/wangwen/index_'+click_page_number+'.asp');
-        }
-    }
-
-</script>
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<style>
+			.title{
+				margin: 20px 15px 7px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">插件列表</h1>
+		</header>
+		    <div class="title">插件列表</div>
+			<div class="mui-card" style="margin-bottom: 35px;">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="娱乐网文/index.html" class="mui-navigate-right">
+							娱乐网文
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 2
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 3
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	</script>
 </html>
