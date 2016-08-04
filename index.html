@@ -25,7 +25,13 @@
         <h1 class="mui-title">娱乐网文</h1>
 	</header>
     <div class="zhanwei"></div>
-    
+
+    <div class="mui-button-row">
+        <button type="button" id="confirm" class="mui-btn mui-btn-primary">发送请求</button>
+    </div>
+
+
+
     <div class="mui-content-padded">
         <ul class="mui-pagination mui-pagination-lg">
             <li class="mui-previous">
@@ -90,7 +96,10 @@
             var url = 'http://m.laifudao.com/wangwen/';
             $.get(url, "", success, "HTML");
         };
-        ajax();
+        //发送请求按钮的点击事件
+        document.getElementById("confirm").addEventListener('tap', function() {
+            ajax();
+        });
     })(mui);
 </script>
 </html>
