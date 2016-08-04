@@ -6,6 +6,8 @@
     <title></title>
     <script src="js/mui.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/PUGE-0.2.js"></script>
     <style>
         .zhanwei{
             width: 100%;
@@ -23,62 +25,7 @@
         <h1 class="mui-title">娱乐网文</h1>
 	</header>
     <div class="zhanwei"></div>
-
-    <div class="mui-button-row">
-        <button type="button" id="confirm" class="mui-btn mui-btn-primary">发送请求</button>
-    </div>
-
-	<div class="mui-card">
-        <div class="mui-card-header">页眉</div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
-            </div>
-		</div>
-    </div>
-    <div class="mui-card">
-        <div class="mui-card-header">页眉</div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
-            </div>
-        </div>
-    </div>
-    <div class="mui-card">
-        <div class="mui-card-header">页眉</div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
-            </div>
-        </div>
-    </div>
-    <div class="mui-card">
-        <div class="mui-card-header">页眉</div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
-            </div>
-        </div>
-    </div>
-
-    <div class="mui-card">
-        <div class="mui-card-header">页眉</div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
-            </div>
-        </div>
-    </div>
-
-    <div class="mui-card">
-        <div class="mui-card-header">页眉</div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
-            </div>
-        </div>
-    </div>
-
+    
     <div class="mui-content-padded">
         <ul class="mui-pagination mui-pagination-lg">
             <li class="mui-previous">
@@ -121,24 +68,29 @@
     </ul>
 </body>
 <script>
+    function dgzfcjq(e,f,g,h){var aa=[];var ab=0;while(e.indexOf(f,h)>0){aa[ab]=cut_string(e,f,g,h);h=e.indexOf(f,h)+1;ab++};return aa};
     (function($) {
-
         //成功响应的回调函数
         var success = function(response) {
             response = JSON.stringify(response);
-            alert(response);
+
+            var box = cut_string(response,'box list','box pageDiv');
+            var title = dgzfcjq(box,'wangwen/1',"<");
+            var content = dgzfcjq(box,'<p>',"</p>");
+            for(var i in title){
+                var a = document.createElement("div");
+                a.setAttribute("class", "mui-card");
+                a.innerHTML = '<div class="mui-card-header">'+title[i]+'</div> <div class="mui-card-content"> <div class="mui-card-content-inner">'+content[i]+'</div> </div>';
+                var b =document.getElementById("confirm");
+                insert_tag_after(a,b);
+            }
         };
         var ajax = function() {
             //利用RunJS的Echo Ajax功能测试
             var url = 'http://m.laifudao.com/wangwen/';
             $.get(url, "", success, "HTML");
         };
-        //发送请求按钮的点击事件
-        document.getElementById("confirm").addEventListener('tap', function() {
-            ajax();
-        });
-
+        ajax();
     })(mui);
-    //sdsd
 </script>
 </html>
