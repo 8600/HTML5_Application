@@ -46,8 +46,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yu_le_wang_wen/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="149" column="34" selection-start-line="149" selection-start-column="34" selection-end-line="149" selection-end-column="34" />
+            <state relative-caret-position="168">
+              <caret line="158" column="71" selection-start-line="158" selection-start-column="71" selection-end-line="158" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -191,12 +191,12 @@
       <workItem from="1470303347411" duration="1696000" />
       <workItem from="1470360829655" duration="3310000" />
       <workItem from="1470364796879" duration="1789000" />
-      <workItem from="1470367854561" duration="6662000" />
+      <workItem from="1470367854561" duration="7345000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35999000" />
+    <option name="totallyTimeSpent" value="36682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="23" width="1412" height="877" extended-state="0" />
@@ -355,8 +355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yu_le_wang_wen/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="149" column="34" selection-start-line="149" selection-start-column="34" selection-end-line="149" selection-end-column="34" />
+        <state relative-caret-position="168">
+          <caret line="158" column="71" selection-start-line="158" selection-start-column="71" selection-end-line="158" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

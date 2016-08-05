@@ -147,7 +147,6 @@
     (function($) {
         //成功响应的回调函数
         success = function(response) {
-            console.log(response);
             response = JSON.stringify(response);
             var box = cut_string(response,'box list','box pageDiv');
             box=box.replace(/\\r\\n\\t\\t\\t\\t/g,"");
