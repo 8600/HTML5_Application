@@ -12,9 +12,84 @@
         .zhanwei{
             width: 100%;
             height: 40px;
-        } 
+        }
+        .base {
+            height: 9em;
+            left: 50%;
+            margin: -7.5em;
+            padding: 3em;
+            position: absolute;
+            top: 50%;
+            width: 9em;
+            transform: rotateX(45deg) rotateZ(45deg);
+            transform-style: preserve-3d;
+            box-sizing: content-box;
+        }
 
+        .cube,
+        .cube:after,
+        .cube:before {
+            content: '';
+            float: left;
+            height: 3em;
+            position: absolute;
+            width: 3em;
+        }
+
+        /* Top */
+        .base .cube {
+            background-color: #05afd1;
+            position: relative;
+            transform: translateZ(3em);
+            transform-style: preserve-3d;
+            transition: .25s;
+            box-shadow: 13em 13em 1.5em rgba(0, 0, 0, 0.1);
+            animation: anim 1s infinite;
+        }
+        .base .cube:after {
+            background-color: #049dbc;
+            transform: rotateX(-90deg) translateY(3em);
+            transform-origin: 100% 100%;
+        }
+        .base .cube:before {
+            background-color: #048ca7;
+            transform: rotateY(90deg) translateX(3em);
+            transform-origin: 100% 0;
+        }
+        .base .cube:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .base .cube:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        .base .cube:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+        .base .cube:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+        .base .cube:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+        .base .cube:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+        .base .cube:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+        .base .cube:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+        .base .cube:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+        @keyframes anim {
+            50% {
+                transform: translateZ(0.5em);
+            }
+        }
     </style>
+    <script src="prefixfree.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script>
@@ -28,9 +103,20 @@
     <div id="item_box">
         <div id="item"></div>
     </div>
+    <div id="load" class='base'>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+        <div class='cube'></div>
+    </div>
 
-    <div class="mui-content-padded">
-        <ul class="  mui-pager" >
+    <div id="page_button" style="display: none" class="mui-content-padded">
+        <ul class=" mui-pager" >
             <li class="mui-previous">
                 <a>«</a>
             </li>
@@ -57,24 +143,25 @@
 
 </body>
 <script>
-    function dgzfcjq(e,f,g,h){var aa=[];var ab=0;while(e.indexOf(f,h)>0){aa[ab]=cut_string(e,f,g,h);h=e.indexOf(f,h)+1;ab++};return aa};
     var success;var ajax;
     (function($) {
         //成功响应的回调函数
         success = function(response) {
+            console.log(response);
             response = JSON.stringify(response);
             var box = cut_string(response,'box list','box pageDiv');
             box=box.replace(/\\r\\n\\t\\t\\t\\t/g,"");
-            var title = dgzfcjq(box,'asp\\">',"<");
-            var content = dgzfcjq(box,'<p>',"<em>");
+            var title = cut_string_array(box,'asp\\">',"<");
+            var content = cut_string_array(box,'<p>',"<em>");
             var b =document.getElementById("item");
             for(var i in title){
                 var a = document.createElement("div");
                 a.setAttribute("class", "mui-card");
                 a.innerHTML = '<div class="mui-card-header">'+title[i]+'</div> <div class="mui-card-content"> <div class="mui-card-content-inner">'+content[i]+'</div> </div>';
                 insert_tag_after(a,b);
-
             }
+            hide_element(document.getElementById("page_button"));
+            hide_element(document.getElementById("load"));
         };
         ajax = function(url) {
             //利用RunJS的Echo Ajax功能测试
@@ -84,6 +171,8 @@
     })(mui);
     //换页事件
     function page(a) {
+        hide_element(document.getElementById("page_button"));
+        hide_element(document.getElementById("load"));
         var click_page =document.getElementById(a);
         var click_page_number = parseInt(click_page.innerHTML);
         var page_1=document.getElementById("page1");
@@ -104,7 +193,6 @@
             active_button1.setAttribute("class","");
             active_button2.setAttribute("class","");
             active_button3.setAttribute("class","mui-active");
-
             box.innerHTML='<div id="item"></div>';
             ajax('http://m.laifudao.com/wangwen/index_'+click_page_number+'.asp');
         }
