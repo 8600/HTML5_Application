@@ -6,7 +6,6 @@
     <title></title>
     <script src="../js/mui.min.js"></script>
     <link href="../css/mui.min.css" rel="stylesheet"/>
-    <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/PUGE-0.2.js"></script>
     <style>
         .zhanwei{
@@ -165,9 +164,10 @@
         };
         ajax = function(url) {
             //利用RunJS的Echo Ajax功能测试
+            mui.toast('正在加载...');
             $.get(url, "", success, "HTML");
         };
-        setTimeout(ajax('http://m.laifudao.com/wangwen/'),1000);
+        setTimeout(ajax('http://m.laifudao.com/wangwen/'),500);
     })(mui);
     //换页事件
     function page(a) {
