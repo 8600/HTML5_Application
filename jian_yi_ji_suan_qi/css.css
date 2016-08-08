@@ -16,7 +16,7 @@ a:hover{color:#D40000;text-decoration:none}
 	margin: 0;
     width: 99%;
     padding: 9px 5px;
-    height: 45px;
+    height: 65px;
     border: 1px solid #e5e5e5;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -24,7 +24,7 @@ a:hover{color:#D40000;text-decoration:none}
     background: #FFF;
     text-align: right;
     line-height: 40px;
-    font-size: 21px;
+    font-size: 40px;
     font-family: Verdana, Geneva, sans-serif;
     color: #666;
     outline: none;
@@ -53,8 +53,8 @@ a:hover{color:#D40000;text-decoration:none}
     }
 #calcuator #btn-list .btn-radius:active{background:#ffffff;}
 #calcuator #btn-list .clear-marginleft{margin-left:0;}
-#calcuator #btn-list .font-14{font-size:14px;}
+#calcuator #btn-list .font-14{font-size: 24px;}
 #calcuator #btn-list .color-red{color:#ff5050}
 #calcuator #btn-list .color-blue{color:#00b4ff}
-#calcuator #btn-list .btn-30{width: 19%;float: left;height: 40px;}
-#calcuator #btn-list .btn-70{width:39%;height:40px;}
+#calcuator #btn-list .btn-30{width: 19%;float: left;height: 60px;line-height: 60px;font-size: 24px;}
+#calcuator #btn-list .btn-70{width:39%;height: 60px;line-height: 60px;font-size: 24px;}
