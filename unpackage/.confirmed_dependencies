@@ -1,6 +1,31 @@
 {
   "index.html": {
     "href": "index.html",
-    "priority": 0
+    "priority": 0,
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "hui_yi_shi_yu_ding/index.html"
+    ],
+    "refer": [
+      "hui_yi_shi_yu_ding/index.html"
+    ]
+  },
+  "hui_yi_shi_yu_ding/index.html": {
+    "resources": [
+      "js/vrv-jssdk-v1.3.js",
+      "js/common.js",
+      "js/mui.picker.min.js",
+      "css/mui.picker.min.css",
+      "css/mui.indexedlist.css",
+      "js/PUGE-0.2.js",
+      "js/immersed.js",
+      "js/mui.view.js",
+      "index.html"
+    ],
+    "refer": [
+      "index.html"
+    ]
   }
 }
