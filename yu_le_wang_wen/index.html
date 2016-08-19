@@ -117,9 +117,6 @@
 
     <div id="page_button" style="display: none" class="mui-content-padded">
         <ul class=" mui-pager" >
-            <li class="mui-previous">
-                <a>«</a>
-            </li>
             <li id="page_1" onclick='page("page1")' class="mui-active">
                 <a id="page1">1</a>
             </li>
@@ -134,9 +131,6 @@
             </li>
             <li id="page_5" onclick='page("page5")'>
                 <a id="page5">5</a>
-            </li>
-            <li class="mui-next mui-disabled">
-                <a>»</a>
             </li>
         </ul>
     </div>
@@ -184,29 +178,25 @@
         var active_button2 =document.getElementById("page_2");
         var active_button3 =document.getElementById("page_3");
         var box =document.getElementById("item_box");
-        if(click_page_number>2){
-            page_1.innerHTML=click_page_number-2;
-            page_2.innerHTML=click_page_number-1;
-            page_3.innerHTML=click_page_number;
-            page_4.innerHTML=click_page_number+1;
-            page_5.innerHTML=click_page_number+2;
+        function change_page(a){
+        		page_1.innerHTML=click_page_number-2+a;
+            page_2.innerHTML=click_page_number-1+a;
+            page_3.innerHTML=click_page_number+a;
+            page_4.innerHTML=click_page_number+1+a;
+            page_5.innerHTML=click_page_number+2+a;
             active_button1.setAttribute("class","");
             active_button2.setAttribute("class","");
-            active_button3.setAttribute("class","mui-active");
-            box.innerHTML='<div id="item"></div>';
-            ajax('http://m.laifudao.com/wangwen/index_'+click_page_number+'.asp');
-        }
-        else if (click_page_number=2){
-            page_1.innerHTML=click_page_number-1;
-            page_2.innerHTML=click_page_number;
-            page_3.innerHTML=click_page_number+1;
-            page_4.innerHTML=click_page_number+2;
-            page_5.innerHTML=click_page_number+3;
-            active_button1.setAttribute("class","");
-            active_button2.setAttribute("class","mui-active");
             active_button3.setAttribute("class","");
             box.innerHTML='<div id="item"></div>';
             ajax('http://m.laifudao.com/wangwen/index_'+click_page_number+'.asp');
+        }
+        switch (click_page_number){
+        		case 1:change_page(2);active_button1.setAttribute("class","mui-active");
+        			break;
+        		case 2:change_page(1);active_button2.setAttribute("class","mui-active");
+        			break;
+        		default:change_page(0);active_button3.setAttribute("class","mui-active");
+        			break;
         }
     }
 
