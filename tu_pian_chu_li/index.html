@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script type="text/javascript" src="alloyimage.js"></script>
+    <script type="text/javascript" src="main2.js"></script>
+    <script type="text/javascript" src="owo.js"></script>
+    <style>
+        .right{
+            width: 0;
+        }
+        .file {
+            position: fixed;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 50%;
+            padding: 4px 12px;
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 27px;
+            width: 33px;
+            height: 49px;
+            right: 5px;
+            bottom: 5px;
+        }
+        .file input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .file:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+        }
+        .texiao{
+            position: fixed;
+            background: #AADFFD;
+            width: 50px;
+            height: 50px;
+            bottom: 70px;
+            right: 2px;
+            border-radius: 50%;
+            line-height: 50px;
+        }
+        .imgWrapper img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .intext{
+            position: relative;
+            left: -37px;
+            bottom: 13px;
+        }
+        .effects li{
+            list-style-type: none;
+        }
+        .effects:nth-last-child(2){
+            color: white;
+        }
+        .effects,.left{
+        		float: left;
+    			position: fixed;
+        }
+        .effects{
+        		display:block; 
+        		position: absolute; 
+        		top: 0; 
+        		z-index: 999; 
+        		background: #00BCD4; 
+        		border: 1px solid #ccc; 
+        		padding: 1px; 
+        		width: 130px;
+        		overflow:auto;
+        		height: 500px;
+        		border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="overflow-y:scroll;">
+<div class="wrapper">
+    <div class="left">
+        <ul id="effects" style="display: none;" class="effects">
+            <li class="e_item">
+                <div class="imgWrapper"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div id="picWrapper" class="picWrapper" >
+            <img src="img/bulding.jpg" class="pic" id="pic" alt="" draggable="false"/>
+            <div style="display: none;" id="infoMsg">处理中</div>
+        </div>
+    </div>
+</div>
+
+<a href="javascript:;" class="file">上传图片
+    <input type="file" name="open" id="open" class="open" />
+</a>
+<div class="file" onclick="hide_element(document.getElementById('effects'))" style="bottom: 70px;">添加特效</div>
+
+</body>
+<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-23019343-9']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+</script>
+
+
+</html>
