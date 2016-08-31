@@ -1,0 +1,11 @@
+{
+	"index.html": {
+		"resources": [
+			"scripts/jquery-1.11.1.min.js",
+			"images/table.jpg",
+			"images/deck.png",
+			"styles/matchgame.css",
+			"scripts/htm5game.matchgame.js"
+		]
+	}
+}

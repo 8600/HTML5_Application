@@ -6,10 +6,12 @@
       "js/mui.min.js",
       "fonts/mui.ttf",
       "css/mui.min.css",
-      "hui_yi_shi_yu_ding/index.html"
+      "hui_yi_shi_yu_ding/index.html",
+      "fan_pai_you_xi/index.html"
     ],
     "refer": [
-      "hui_yi_shi_yu_ding/index.html"
+      "hui_yi_shi_yu_ding/index.html",
+      "fan_pai_you_xi/index.html"
     ]
   },
   "hui_yi_shi_yu_ding/index.html": {
@@ -26,6 +28,16 @@
     ],
     "refer": [
       "index.html"
+    ]
+  },
+  "fan_pai_you_xi/index.html": {
+    "resources": [
+      "fan_pai_you_xi/images/deck.png",
+      "fan_pai_you_xi/images/table.jpg",
+      "fan_pai_you_xi/scripts/jquery-1.11.1.min.js",
+      "fan_pai_you_xi/scripts/htm5game.matchgame.js",
+      "fan_pai_you_xi/styles/matchgame.css",
+      "css/mui.min.css"
     ]
   }
 }
